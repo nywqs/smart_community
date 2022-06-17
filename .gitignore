@@ -34,7 +34,8 @@ hs_err_pid*
 .DS_Store
 
 _dockerCerts/
-
+_sql/
+_images/
 .factorypath
 
 node_modules/
