@@ -22,7 +22,7 @@ Snowy采用APACHE LICENSE 2.0开源协议，您在使用过程中，需要注意
 5.在修改包名，模块名称，项目代码等时，请注明软件出处 https://gitee.com/xiaonuobase/snowy
 6.若您的项目无法满足以上几点，可申请商业授权，获取Snowy商业授权许可，请在官网购买授权，地址为 https://www.xiaonuo.vip
  */
-package vip.xiaonuo.modular.building.entity;
+package vip.xiaonuo.modular.house.entity;
 
 import com.baomidou.mybatisplus.annotation.*;
 import vip.xiaonuo.core.pojo.base.entity.BaseEntity;
@@ -32,33 +32,27 @@ import java.util.*;
 import cn.afterturn.easypoi.excel.annotation.Excel;
 
 /**
- * 楼宇
+ * 房屋
  *
  * @author 程永磊
- * @date 2022-06-17 20:03:07
+ * @date 2022-06-17 20:21:07
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-@TableName("sys_building")
-public class Building extends BaseEntity {
+@TableName("sys_house")
+public class House extends BaseEntity {
 
 
     /**
-     * 小区地址
+     * 楼宇ID
      */
-    @Excel(name = "小区地址")
-    private String address;
+    @Excel(name = "楼宇ID")
+    private Long buildingId;
 
     /**
-     * 建筑时间
+     * 门牌号
      */
-    @Excel(name = "建筑时间", databaseFormat = "yyyy-MM-dd HH:mm:ss", format = "yyyy-MM-dd", width = 20)
-    private Date buildDate;
-
-    /**
-     * 楼宇编号
-     */
-    @Excel(name = "楼宇编号")
+    @Excel(name = "门牌号")
     private String code;
 
     /**
@@ -68,16 +62,16 @@ public class Building extends BaseEntity {
     private Long communityId;
 
     /**
-     * 总层数
+     * 楼层
      */
-    @Excel(name = "总层数")
-    private Integer floorCount;
+    @Excel(name = "楼层")
+    private Integer floor;
 
     /**
-     * 户型
+     * 户型(例如一房一厅)
      */
-    @Excel(name = "户型")
-    private Integer floorHouse;
+    @Excel(name = "户型(例如一房一厅)")
+    private Integer houseType;
     /**
      * 主键
      */
@@ -85,10 +79,10 @@ public class Building extends BaseEntity {
     private Long id;
 
     /**
-     * 梯类型
+     * 是否出租
      */
-    @Excel(name = "梯类型")
-    private Integer ladderType;
+    @Excel(name = "是否出租")
+    private Integer leaseStatus;
 
     /**
      * 状态
@@ -103,15 +97,9 @@ public class Building extends BaseEntity {
     private String title;
 
     /**
-     * 建筑类型（0:小高层,1:高层）
+     * 房屋性质(0:居家，1:办公)
      */
-    @Excel(name = "建筑类型（0:小高层,1:高层）")
-    private Integer type;
-
-    /**
-     * 建筑性质(0:住宅，1：商用房,3:商住两用)
-     */
-    @Excel(name = "建筑性质(0:住宅，1：商用房,3:商住两用)")
+    @Excel(name = "房屋性质(0:居家，1:办公)")
     private Integer useType;
 
     /**
