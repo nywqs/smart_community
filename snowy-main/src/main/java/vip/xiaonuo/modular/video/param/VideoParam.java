@@ -22,97 +22,63 @@ Snowy采用APACHE LICENSE 2.0开源协议，您在使用过程中，需要注意
 5.在修改包名，模块名称，项目代码等时，请注明软件出处 https://gitee.com/xiaonuobase/snowy
 6.若您的项目无法满足以上几点，可申请商业授权，获取Snowy商业授权许可，请在官网购买授权，地址为 https://www.xiaonuo.vip
  */
-package vip.xiaonuo.modular.merchant.entity;
+package vip.xiaonuo.modular.video.param;
 
-import com.baomidou.mybatisplus.annotation.*;
-import vip.xiaonuo.core.pojo.base.entity.BaseEntity;
+import vip.xiaonuo.core.pojo.base.param.BaseParam;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
 import java.util.*;
-import cn.afterturn.easypoi.excel.annotation.Excel;
-import java.math.BigDecimal;
 
 /**
- * 商户
+* 视频列表参数类
  *
- * @author 程永磊
- * @date 2022-06-17 20:38:52
- */
-@EqualsAndHashCode(callSuper = true)
+ * @author jetox
+ * @date 2022-06-17 22:07:37
+*/
 @Data
-@TableName("sys_merchant")
-public class Merchant extends BaseEntity {
-
+public class VideoParam extends BaseParam {
 
     /**
-     * 经营地址
+     * 简要描述
      */
-    @Excel(name = "经营地址")
-    private String address;
+    @NotNull(message = "简要描述不能为空，请检查content参数", groups = {add.class, edit.class})
+    private tinytext content;
 
-    /**
-     * 经营类型
-     */
-    @Excel(name = "经营类型")
-    private Integer bizType;
-
-    /**
-     * 楼宇ID
-     */
-    @Excel(name = "楼宇ID")
-    private Long buildingId;
-
-    /**
-     * 社区ID
-     */
-    @Excel(name = "社区ID")
-    private Long communityId;
     /**
      * 主键
      */
-    @TableId(type = IdType.ASSIGN_ID)
+    @NotNull(message = "主键不能为空，请检查id参数", groups = {edit.class, delete.class, detail.class})
     private Long id;
 
     /**
-     * 店招照片
+     * 满意度
      */
-    @Excel(name = "店招照片")
-    private Integer image;
-
-    /**
-     * 开业时间
-     */
-    @Excel(name = "开业时间", databaseFormat = "yyyy-MM-dd HH:mm:ss", format = "yyyy-MM-dd", width = 20)
-    private Date openDate;
+    @NotNull(message = "满意度不能为空，请检查playTimes参数", groups = {add.class, edit.class})
+    private Integer playTimes;
 
     /**
      * 状态
      */
-    @Excel(name = "状态")
+    @NotNull(message = "状态不能为空，请检查status参数", groups = {add.class, edit.class})
     private Integer status;
 
     /**
-     * 联系电话
+     * 标题
      */
-    @Excel(name = "联系电话")
-    private String tel;
-
-    /**
-     * 商户名称
-     */
-    @Excel(name = "商户名称")
+    @NotBlank(message = "标题不能为空，请检查title参数", groups = {add.class, edit.class})
     private String title;
 
     /**
-     * 经营面积
+     * 类型（字典 1建议 2反馈）
      */
-    @Excel(name = "经营面积")
-    private BigDecimal useArea;
+    @NotNull(message = "类型（字典 1建议 2反馈）不能为空，请检查type参数", groups = {add.class, edit.class})
+    private Integer type;
 
     /**
-     * 小区ID
+     * 视频地址
      */
-    @Excel(name = "小区ID")
-    private Long villageId;
+    @NotBlank(message = "视频地址不能为空，请检查url参数", groups = {add.class, edit.class})
+    private String url;
 
 }

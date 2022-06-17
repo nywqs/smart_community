@@ -22,7 +22,7 @@ Snowy采用APACHE LICENSE 2.0开源协议，您在使用过程中，需要注意
 5.在修改包名，模块名称，项目代码等时，请注明软件出处 https://gitee.com/xiaonuobase/snowy
 6.若您的项目无法满足以上几点，可申请商业授权，获取Snowy商业授权许可，请在官网购买授权，地址为 https://www.xiaonuo.vip
  */
-package vip.xiaonuo.modular.merchant.entity;
+package vip.xiaonuo.modular.video.entity;
 
 import com.baomidou.mybatisplus.annotation.*;
 import vip.xiaonuo.core.pojo.base.entity.BaseEntity;
@@ -30,43 +30,24 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import java.util.*;
 import cn.afterturn.easypoi.excel.annotation.Excel;
-import java.math.BigDecimal;
 
 /**
- * 商户
+ * 视频列表
  *
- * @author 程永磊
- * @date 2022-06-17 20:38:52
+ * @author jetox
+ * @date 2022-06-17 22:07:37
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-@TableName("sys_merchant")
-public class Merchant extends BaseEntity {
+@TableName("sys_video")
+public class Video extends BaseEntity {
 
 
     /**
-     * 经营地址
+     * 简要描述
      */
-    @Excel(name = "经营地址")
-    private String address;
-
-    /**
-     * 经营类型
-     */
-    @Excel(name = "经营类型")
-    private Integer bizType;
-
-    /**
-     * 楼宇ID
-     */
-    @Excel(name = "楼宇ID")
-    private Long buildingId;
-
-    /**
-     * 社区ID
-     */
-    @Excel(name = "社区ID")
-    private Long communityId;
+    @Excel(name = "简要描述")
+    private tinytext content;
     /**
      * 主键
      */
@@ -74,16 +55,10 @@ public class Merchant extends BaseEntity {
     private Long id;
 
     /**
-     * 店招照片
+     * 满意度
      */
-    @Excel(name = "店招照片")
-    private Integer image;
-
-    /**
-     * 开业时间
-     */
-    @Excel(name = "开业时间", databaseFormat = "yyyy-MM-dd HH:mm:ss", format = "yyyy-MM-dd", width = 20)
-    private Date openDate;
+    @Excel(name = "满意度")
+    private Integer playTimes;
 
     /**
      * 状态
@@ -92,27 +67,21 @@ public class Merchant extends BaseEntity {
     private Integer status;
 
     /**
-     * 联系电话
+     * 标题
      */
-    @Excel(name = "联系电话")
-    private String tel;
-
-    /**
-     * 商户名称
-     */
-    @Excel(name = "商户名称")
+    @Excel(name = "标题")
     private String title;
 
     /**
-     * 经营面积
+     * 类型（字典 1建议 2反馈）
      */
-    @Excel(name = "经营面积")
-    private BigDecimal useArea;
+    @Excel(name = "类型（字典 1建议 2反馈）")
+    private Integer type;
 
     /**
-     * 小区ID
+     * 视频地址
      */
-    @Excel(name = "小区ID")
-    private Long villageId;
+    @Excel(name = "视频地址")
+    private String url;
 
 }
