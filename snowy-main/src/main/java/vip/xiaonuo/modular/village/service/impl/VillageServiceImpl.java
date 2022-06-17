@@ -50,7 +50,7 @@ import java.util.List;
  * 小区service接口实现类
  *
  * @author 程永磊
- * @date 2022-06-17 19:49:18
+ * @date 2022-06-17 19:56:45
  */
 @Service
 public class VillageServiceImpl extends ServiceImpl<VillageMapper, Village> implements VillageService {
@@ -117,7 +117,7 @@ public class VillageServiceImpl extends ServiceImpl<VillageMapper, Village> impl
      * 获取小区
      *
      * @author 程永磊
-     * @date 2022-06-17 19:49:18
+     * @date 2022-06-17 19:56:45
      */
     private Village queryVillage(VillageParam villageParam) {
         Village village = this.getById(villageParam.getId());

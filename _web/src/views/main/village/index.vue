@@ -19,7 +19,9 @@
             <template v-if="advanced">
               <a-col :md="8" :sm="24">
                 <a-form-item label="状态">
-                  <a-input v-model="queryParam.status" allow-clear placeholder="请输入状态"/>
+                  <a-select style="width: 100%" v-model="queryParam.status" placeholder="请选择状态">
+                    <a-select-option v-for="(item,index) in statusData" :key="index" :value="item.code">{{ item.name }}</a-select-option>
+                  </a-select>
                 </a-form-item>
               </a-col>
               <a-col :md="8" :sm="24">
@@ -62,6 +64,9 @@
         </template>
         <span slot="communityIdscopedSlots" slot-scope="text">
           {{ '${column.dictTypeCode}' | dictType(text) }}
+        </span>
+        <span slot="statusscopedSlots" slot-scope="text">
+          {{ 'common_status' | dictType(text) }}
         </span>
         <span slot="action" slot-scope="text, record">
           <a v-if="hasPerm('village:edit')" @click="$refs.editForm.edit(record)">编辑</a>
@@ -120,7 +125,8 @@
           {
             title: '状态',
             align: 'center',
-            dataIndex: 'status'
+            dataIndex: 'status',
+            scopedSlots: { customRender: 'statusscopedSlots' }
           },
           {
             title: '名称',
@@ -135,6 +141,7 @@
             return res.data
           })
         },
+        statusData: [],
         selectedRowKeys: [],
         selectedRows: [],
         options: {
@@ -155,6 +162,8 @@
           scopedSlots: { customRender: 'action' }
         })
       }
+      const statusOption = this.$options
+      this.statusData = statusOption.filters['dictData']('common_status')
     },
     methods: {
       /**

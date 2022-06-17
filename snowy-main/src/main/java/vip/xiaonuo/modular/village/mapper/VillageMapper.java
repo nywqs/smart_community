@@ -31,7 +31,7 @@ import vip.xiaonuo.modular.village.entity.Village;
  * 小区
  *
  * @author 程永磊
- * @date 2022-06-17 19:49:18
+ * @date 2022-06-17 19:56:45
  */
 public interface VillageMapper extends BaseMapper<Village> {
 }

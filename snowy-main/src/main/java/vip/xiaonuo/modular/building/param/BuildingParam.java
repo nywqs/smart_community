@@ -22,7 +22,7 @@ Snowy采用APACHE LICENSE 2.0开源协议，您在使用过程中，需要注意
 5.在修改包名，模块名称，项目代码等时，请注明软件出处 https://gitee.com/xiaonuobase/snowy
 6.若您的项目无法满足以上几点，可申请商业授权，获取Snowy商业授权许可，请在官网购买授权，地址为 https://www.xiaonuo.vip
  */
-package vip.xiaonuo.modular.village.param;
+package vip.xiaonuo.modular.building.param;
 
 import vip.xiaonuo.core.pojo.base.param.BaseParam;
 import lombok.Data;
@@ -31,13 +31,13 @@ import javax.validation.constraints.NotBlank;
 import java.util.*;
 
 /**
-* 小区参数类
+* 楼宇参数类
  *
  * @author 程永磊
- * @date 2022-06-17 19:56:45
+ * @date 2022-06-17 20:03:07
 */
 @Data
-public class VillageParam extends BaseParam {
+public class BuildingParam extends BaseParam {
 
     /**
      * 小区地址
@@ -46,16 +46,16 @@ public class VillageParam extends BaseParam {
     private String address;
 
     /**
-     * 绿化面积
+     * 建筑时间
      */
-    @NotNull(message = "绿化面积不能为空，请检查afforestedMeasure参数", groups = {add.class, edit.class})
-    private Integer afforestedMeasure;
+    @NotNull(message = "建筑时间不能为空，请检查buildDate参数", groups = {add.class, edit.class})
+    private String buildDate;
 
     /**
-     * 小区面积
+     * 楼宇编号
      */
-    @NotNull(message = "小区面积不能为空，请检查areaMeasure参数", groups = {add.class, edit.class})
-    private Integer areaMeasure;
+    @NotBlank(message = "楼宇编号不能为空，请检查code参数", groups = {add.class, edit.class})
+    private String code;
 
     /**
      * 社区ID
@@ -64,10 +64,28 @@ public class VillageParam extends BaseParam {
     private Long communityId;
 
     /**
+     * 总层数
+     */
+    @NotNull(message = "总层数不能为空，请检查floorCount参数", groups = {add.class, edit.class})
+    private Integer floorCount;
+
+    /**
+     * 户型
+     */
+    @NotNull(message = "户型不能为空，请检查floorHouse参数", groups = {add.class, edit.class})
+    private Integer floorHouse;
+
+    /**
      * 主键
      */
     @NotNull(message = "主键不能为空，请检查id参数", groups = {edit.class, delete.class, detail.class})
     private Long id;
+
+    /**
+     * 梯类型
+     */
+    @NotNull(message = "梯类型不能为空，请检查ladderType参数", groups = {add.class, edit.class})
+    private Integer ladderType;
 
     /**
      * 状态
@@ -80,5 +98,23 @@ public class VillageParam extends BaseParam {
      */
     @NotBlank(message = "名称不能为空，请检查title参数", groups = {add.class, edit.class})
     private String title;
+
+    /**
+     * 建筑类型（0:小高层,1:高层）
+     */
+    @NotNull(message = "建筑类型（0:小高层,1:高层）不能为空，请检查type参数", groups = {add.class, edit.class})
+    private Integer type;
+
+    /**
+     * 建筑性质(0:住宅，1：商用房,3:商住两用)
+     */
+    @NotNull(message = "建筑性质(0:住宅，1：商用房,3:商住两用)不能为空，请检查useType参数", groups = {add.class, edit.class})
+    private Integer useType;
+
+    /**
+     * 小区ID
+     */
+    @NotNull(message = "小区ID不能为空，请检查villageId参数", groups = {add.class, edit.class})
+    private Long villageId;
 
 }

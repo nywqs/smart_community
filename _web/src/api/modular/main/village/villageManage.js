@@ -4,7 +4,7 @@ import { axios } from '@/utils/request'
  * 查询小区
  *
  * @author 程永磊
- * @date 2022-06-17 19:49:18
+ * @date 2022-06-17 19:56:45
  */
 export function villagePage (parameter) {
   return axios({
@@ -18,7 +18,7 @@ export function villagePage (parameter) {
  * 小区列表
  *
  * @author 程永磊
- * @date 2022-06-17 19:49:18
+ * @date 2022-06-17 19:56:45
  */
 export function villageList (parameter) {
   return axios({
@@ -32,7 +32,7 @@ export function villageList (parameter) {
  * 添加小区
  *
  * @author 程永磊
- * @date 2022-06-17 19:49:18
+ * @date 2022-06-17 19:56:45
  */
 export function villageAdd (parameter) {
   return axios({
@@ -46,7 +46,7 @@ export function villageAdd (parameter) {
  * 编辑小区
  *
  * @author 程永磊
- * @date 2022-06-17 19:49:18
+ * @date 2022-06-17 19:56:45
  */
 export function villageEdit (parameter) {
   return axios({
@@ -60,7 +60,7 @@ export function villageEdit (parameter) {
  * 删除小区
  *
  * @author 程永磊
- * @date 2022-06-17 19:49:18
+ * @date 2022-06-17 19:56:45
  */
 export function villageDelete (parameter) {
   return axios({
@@ -74,7 +74,7 @@ export function villageDelete (parameter) {
  * 导出小区
  *
  * @author 程永磊
- * @date 2022-06-17 19:49:18
+ * @date 2022-06-17 19:56:45
  */
 export function villageExport (parameter) {
   return axios({

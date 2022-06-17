@@ -22,66 +22,76 @@ Snowy采用APACHE LICENSE 2.0开源协议，您在使用过程中，需要注意
 5.在修改包名，模块名称，项目代码等时，请注明软件出处 https://gitee.com/xiaonuobase/snowy
 6.若您的项目无法满足以上几点，可申请商业授权，获取Snowy商业授权许可，请在官网购买授权，地址为 https://www.xiaonuo.vip
  */
-package vip.xiaonuo.modular.village.entity;
+package vip.xiaonuo.modular.building.service;
 
-import com.baomidou.mybatisplus.annotation.*;
-import vip.xiaonuo.core.pojo.base.entity.BaseEntity;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import java.util.*;
-import cn.afterturn.easypoi.excel.annotation.Excel;
+import com.baomidou.mybatisplus.extension.service.IService;
+import vip.xiaonuo.core.pojo.page.PageResult;
+import vip.xiaonuo.modular.building.entity.Building;
+import vip.xiaonuo.modular.building.param.BuildingParam;
+import java.util.List;
 
 /**
- * 小区
+ * 楼宇service接口
  *
  * @author 程永磊
- * @date 2022-06-17 19:56:45
+ * @date 2022-06-17 20:03:07
  */
-@EqualsAndHashCode(callSuper = true)
-@Data
-@TableName("sys_village")
-public class Village extends BaseEntity {
-
+public interface BuildingService extends IService<Building> {
 
     /**
-     * 小区地址
+     * 查询楼宇
+     *
+     * @author 程永磊
+     * @date 2022-06-17 20:03:07
      */
-    @Excel(name = "小区地址")
-    private String address;
+    PageResult<Building> page(BuildingParam buildingParam);
 
     /**
-     * 绿化面积
+     * 楼宇列表
+     *
+     * @author 程永磊
+     * @date 2022-06-17 20:03:07
      */
-    @Excel(name = "绿化面积")
-    private Integer afforestedMeasure;
+    List<Building> list(BuildingParam buildingParam);
 
     /**
-     * 小区面积
+     * 添加楼宇
+     *
+     * @author 程永磊
+     * @date 2022-06-17 20:03:07
      */
-    @Excel(name = "小区面积")
-    private Integer areaMeasure;
+    void add(BuildingParam buildingParam);
 
     /**
-     * 社区ID
+     * 删除楼宇
+     *
+     * @author 程永磊
+     * @date 2022-06-17 20:03:07
      */
-    @Excel(name = "社区ID")
-    private Long communityId;
-    /**
-     * 主键
-     */
-    @TableId(type = IdType.ASSIGN_ID)
-    private Long id;
+    void delete(List<BuildingParam> buildingParamList);
 
     /**
-     * 状态
+     * 编辑楼宇
+     *
+     * @author 程永磊
+     * @date 2022-06-17 20:03:07
      */
-    @Excel(name = "状态")
-    private Integer status;
+    void edit(BuildingParam buildingParam);
 
     /**
-     * 名称
+     * 查看楼宇
+     *
+     * @author 程永磊
+     * @date 2022-06-17 20:03:07
      */
-    @Excel(name = "名称")
-    private String title;
+     Building detail(BuildingParam buildingParam);
+
+    /**
+     * 导出楼宇
+     *
+     * @author 程永磊
+     * @date 2022-06-17 20:03:07
+     */
+     void export(BuildingParam buildingParam);
 
 }

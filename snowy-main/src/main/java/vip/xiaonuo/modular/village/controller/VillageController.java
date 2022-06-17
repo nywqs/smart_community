@@ -43,7 +43,7 @@ import java.util.List;
  * 小区控制器
  *
  * @author 程永磊
- * @date 2022-06-17 19:49:18
+ * @date 2022-06-17 19:56:45
  */
 @RestController
 public class VillageController {
@@ -55,7 +55,7 @@ public class VillageController {
      * 查询小区
      *
      * @author 程永磊
-     * @date 2022-06-17 19:49:18
+     * @date 2022-06-17 19:56:45
      */
     @Permission
     @GetMapping("/village/page")
@@ -68,7 +68,7 @@ public class VillageController {
      * 添加小区
      *
      * @author 程永磊
-     * @date 2022-06-17 19:49:18
+     * @date 2022-06-17 19:56:45
      */
     @Permission
     @PostMapping("/village/add")
@@ -82,7 +82,7 @@ public class VillageController {
      * 删除小区，可批量删除
      *
      * @author 程永磊
-     * @date 2022-06-17 19:49:18
+     * @date 2022-06-17 19:56:45
      */
     @Permission
     @PostMapping("/village/delete")
@@ -96,7 +96,7 @@ public class VillageController {
      * 编辑小区
      *
      * @author 程永磊
-     * @date 2022-06-17 19:49:18
+     * @date 2022-06-17 19:56:45
      */
     @Permission
     @PostMapping("/village/edit")
@@ -110,7 +110,7 @@ public class VillageController {
      * 查看小区
      *
      * @author 程永磊
-     * @date 2022-06-17 19:49:18
+     * @date 2022-06-17 19:56:45
      */
     @Permission
     @GetMapping("/village/detail")
@@ -123,7 +123,7 @@ public class VillageController {
      * 小区列表
      *
      * @author 程永磊
-     * @date 2022-06-17 19:49:18
+     * @date 2022-06-17 19:56:45
      */
     @Permission
     @GetMapping("/village/list")
@@ -136,7 +136,7 @@ public class VillageController {
      * 导出小区
      *
      * @author 程永磊
-     * @date 2022-06-17 19:49:18
+     * @date 2022-06-17 19:56:45
      */
     @Permission
     @GetMapping("/village/export")

@@ -22,63 +22,103 @@ Snowy采用APACHE LICENSE 2.0开源协议，您在使用过程中，需要注意
 5.在修改包名，模块名称，项目代码等时，请注明软件出处 https://gitee.com/xiaonuobase/snowy
 6.若您的项目无法满足以上几点，可申请商业授权，获取Snowy商业授权许可，请在官网购买授权，地址为 https://www.xiaonuo.vip
  */
-package vip.xiaonuo.modular.village.param;
+package vip.xiaonuo.modular.building.entity;
 
-import vip.xiaonuo.core.pojo.base.param.BaseParam;
+import com.baomidou.mybatisplus.annotation.*;
+import vip.xiaonuo.core.pojo.base.entity.BaseEntity;
 import lombok.Data;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.NotBlank;
+import lombok.EqualsAndHashCode;
 import java.util.*;
+import cn.afterturn.easypoi.excel.annotation.Excel;
 
 /**
-* 小区参数类
+ * 楼宇
  *
  * @author 程永磊
- * @date 2022-06-17 19:56:45
-*/
+ * @date 2022-06-17 20:03:07
+ */
+@EqualsAndHashCode(callSuper = true)
 @Data
-public class VillageParam extends BaseParam {
+@TableName("sys_building")
+public class Building extends BaseEntity {
+
 
     /**
      * 小区地址
      */
-    @NotBlank(message = "小区地址不能为空，请检查address参数", groups = {add.class, edit.class})
+    @Excel(name = "小区地址")
     private String address;
 
     /**
-     * 绿化面积
+     * 建筑时间
      */
-    @NotNull(message = "绿化面积不能为空，请检查afforestedMeasure参数", groups = {add.class, edit.class})
-    private Integer afforestedMeasure;
+    @Excel(name = "建筑时间", databaseFormat = "yyyy-MM-dd HH:mm:ss", format = "yyyy-MM-dd", width = 20)
+    @Excel(name = "建筑时间")
+    private Date buildDate;
 
     /**
-     * 小区面积
+     * 楼宇编号
      */
-    @NotNull(message = "小区面积不能为空，请检查areaMeasure参数", groups = {add.class, edit.class})
-    private Integer areaMeasure;
+    @Excel(name = "楼宇编号")
+    private String code;
 
     /**
      * 社区ID
      */
-    @NotNull(message = "社区ID不能为空，请检查communityId参数", groups = {add.class, edit.class})
+    @Excel(name = "社区ID")
     private Long communityId;
 
     /**
+     * 总层数
+     */
+    @Excel(name = "总层数")
+    private Integer floorCount;
+
+    /**
+     * 户型
+     */
+    @Excel(name = "户型")
+    private Integer floorHouse;
+    /**
      * 主键
      */
-    @NotNull(message = "主键不能为空，请检查id参数", groups = {edit.class, delete.class, detail.class})
+    @TableId(type = IdType.ASSIGN_ID)
     private Long id;
+
+    /**
+     * 梯类型
+     */
+    @Excel(name = "梯类型")
+    private Integer ladderType;
 
     /**
      * 状态
      */
-    @NotNull(message = "状态不能为空，请检查status参数", groups = {add.class, edit.class})
+    @Excel(name = "状态")
     private Integer status;
 
     /**
      * 名称
      */
-    @NotBlank(message = "名称不能为空，请检查title参数", groups = {add.class, edit.class})
+    @Excel(name = "名称")
     private String title;
+
+    /**
+     * 建筑类型（0:小高层,1:高层）
+     */
+    @Excel(name = "建筑类型（0:小高层,1:高层）")
+    private Integer type;
+
+    /**
+     * 建筑性质(0:住宅，1：商用房,3:商住两用)
+     */
+    @Excel(name = "建筑性质(0:住宅，1：商用房,3:商住两用)")
+    private Integer useType;
+
+    /**
+     * 小区ID
+     */
+    @Excel(name = "小区ID")
+    private Long villageId;
 
 }

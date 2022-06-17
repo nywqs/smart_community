@@ -34,7 +34,7 @@ import java.util.List;
  * 小区service接口
  *
  * @author 程永磊
- * @date 2022-06-17 19:49:18
+ * @date 2022-06-17 19:56:45
  */
 public interface VillageService extends IService<Village> {
 
@@ -42,7 +42,7 @@ public interface VillageService extends IService<Village> {
      * 查询小区
      *
      * @author 程永磊
-     * @date 2022-06-17 19:49:18
+     * @date 2022-06-17 19:56:45
      */
     PageResult<Village> page(VillageParam villageParam);
 
@@ -50,7 +50,7 @@ public interface VillageService extends IService<Village> {
      * 小区列表
      *
      * @author 程永磊
-     * @date 2022-06-17 19:49:18
+     * @date 2022-06-17 19:56:45
      */
     List<Village> list(VillageParam villageParam);
 
@@ -58,7 +58,7 @@ public interface VillageService extends IService<Village> {
      * 添加小区
      *
      * @author 程永磊
-     * @date 2022-06-17 19:49:18
+     * @date 2022-06-17 19:56:45
      */
     void add(VillageParam villageParam);
 
@@ -66,7 +66,7 @@ public interface VillageService extends IService<Village> {
      * 删除小区
      *
      * @author 程永磊
-     * @date 2022-06-17 19:49:18
+     * @date 2022-06-17 19:56:45
      */
     void delete(List<VillageParam> villageParamList);
 
@@ -74,7 +74,7 @@ public interface VillageService extends IService<Village> {
      * 编辑小区
      *
      * @author 程永磊
-     * @date 2022-06-17 19:49:18
+     * @date 2022-06-17 19:56:45
      */
     void edit(VillageParam villageParam);
 
@@ -82,7 +82,7 @@ public interface VillageService extends IService<Village> {
      * 查看小区
      *
      * @author 程永磊
-     * @date 2022-06-17 19:49:18
+     * @date 2022-06-17 19:56:45
      */
      Village detail(VillageParam villageParam);
 
@@ -90,7 +90,7 @@ public interface VillageService extends IService<Village> {
      * 导出小区
      *
      * @author 程永磊
-     * @date 2022-06-17 19:49:18
+     * @date 2022-06-17 19:56:45
      */
      void export(VillageParam villageParam);
 

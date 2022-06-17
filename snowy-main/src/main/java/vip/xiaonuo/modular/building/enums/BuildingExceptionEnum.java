@@ -22,7 +22,7 @@ Snowy采用APACHE LICENSE 2.0开源协议，您在使用过程中，需要注意
 5.在修改包名，模块名称，项目代码等时，请注明软件出处 https://gitee.com/xiaonuobase/snowy
 6.若您的项目无法满足以上几点，可申请商业授权，获取Snowy商业授权许可，请在官网购买授权，地址为 https://www.xiaonuo.vip
  */
-package vip.xiaonuo.modular.village.enums;
+package vip.xiaonuo.modular.building.enums;
 
 import vip.xiaonuo.core.annotion.ExpEnumType;
 import vip.xiaonuo.core.exception.enums.abs.AbstractBaseExceptionEnum;
@@ -30,13 +30,13 @@ import vip.xiaonuo.core.factory.ExpEnumCodeFactory;
 import vip.xiaonuo.sys.core.consts.SysExpEnumConstant;
 
 /**
- * 小区
+ * 楼宇
  *
  * @author 程永磊
- * @date 2022-06-17 19:56:45
+ * @date 2022-06-17 20:03:07
  */
 @ExpEnumType(module = SysExpEnumConstant.SNOWY_SYS_MODULE_EXP_CODE)
-public enum VillageExceptionEnum implements AbstractBaseExceptionEnum {
+public enum BuildingExceptionEnum implements AbstractBaseExceptionEnum {
 
     /**
      * 数据不存在
@@ -46,7 +46,7 @@ public enum VillageExceptionEnum implements AbstractBaseExceptionEnum {
     private final Integer code;
 
     private final String message;
-        VillageExceptionEnum(Integer code, String message) {
+        BuildingExceptionEnum(Integer code, String message) {
         this.code = code;
         this.message = message;
     }
