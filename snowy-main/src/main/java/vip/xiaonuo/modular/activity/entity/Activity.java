@@ -72,28 +72,24 @@ public class Activity extends BaseEntity {
      * 报名开始时间
      */
     @Excel(name = "报名开始时间", databaseFormat = "yyyy-MM-dd HH:mm:ss", format = "yyyy-MM-dd", width = 20)
-    @Excel(name = "报名开始时间")
     private Date preStarttime;
 
     /**
      * 报名截至时间
      */
     @Excel(name = "报名截至时间", databaseFormat = "yyyy-MM-dd HH:mm:ss", format = "yyyy-MM-dd", width = 20)
-    @Excel(name = "报名截至时间")
     private Date preEndtime;
 
     /**
      * 活动开始时间
      */
     @Excel(name = "活动开始时间", databaseFormat = "yyyy-MM-dd HH:mm:ss", format = "yyyy-MM-dd", width = 20)
-    @Excel(name = "活动开始时间")
     private Date starttime;
 
     /**
      * 活动结束时间
      */
     @Excel(name = "活动结束时间", databaseFormat = "yyyy-MM-dd HH:mm:ss", format = "yyyy-MM-dd", width = 20)
-    @Excel(name = "活动结束时间")
     private Date endtime;
 
     /**
