@@ -22,66 +22,39 @@ Snowy采用APACHE LICENSE 2.0开源协议，您在使用过程中，需要注意
 5.在修改包名，模块名称，项目代码等时，请注明软件出处 https://gitee.com/xiaonuobase/snowy
 6.若您的项目无法满足以上几点，可申请商业授权，获取Snowy商业授权许可，请在官网购买授权，地址为 https://www.xiaonuo.vip
  */
-package vip.xiaonuo.modular.video.entity;
+package vip.xiaonuo.modular.videocategory.param;
 
-import com.baomidou.mybatisplus.annotation.*;
-import vip.xiaonuo.core.pojo.base.entity.BaseEntity;
+import vip.xiaonuo.core.pojo.base.param.BaseParam;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
 import java.util.*;
-import cn.afterturn.easypoi.excel.annotation.Excel;
 
 /**
- * 视频列表
+* 视频分类参数类
  *
  * @author jetox
- * @date 2022-06-17 22:07:37
- */
-@EqualsAndHashCode(callSuper = true)
+ * @date 2022-06-17 22:13:03
+*/
 @Data
-@TableName("sys_video")
-public class Video extends BaseEntity {
+public class VideoCategoryParam extends BaseParam {
 
-
-    /**
-     * 简要描述
-     */
-    @Excel(name = "简要描述")
-    private String content;
     /**
      * 主键
      */
-    @TableId(type = IdType.ASSIGN_ID)
+    @NotNull(message = "主键不能为空，请检查id参数", groups = {edit.class, delete.class, detail.class})
     private Long id;
 
     /**
-     * 满意度
+     * 分类名称
      */
-    @Excel(name = "满意度")
-    private Integer playTimes;
+    @NotNull(message = "分类名称不能为空，请检查name参数", groups = {add.class, edit.class})
+    private String name;
 
     /**
      * 状态
      */
-    @Excel(name = "状态")
+    @NotNull(message = "状态不能为空，请检查status参数", groups = {add.class, edit.class})
     private Integer status;
-
-    /**
-     * 标题
-     */
-    @Excel(name = "标题")
-    private String title;
-
-    /**
-     * 类型（字典 1建议 2反馈）
-     */
-    @Excel(name = "类型（字典 1建议 2反馈）")
-    private Integer type;
-
-    /**
-     * 视频地址
-     */
-    @Excel(name = "视频地址")
-    private String url;
 
 }

@@ -22,66 +22,43 @@ Snowy采用APACHE LICENSE 2.0开源协议，您在使用过程中，需要注意
 5.在修改包名，模块名称，项目代码等时，请注明软件出处 https://gitee.com/xiaonuobase/snowy
 6.若您的项目无法满足以上几点，可申请商业授权，获取Snowy商业授权许可，请在官网购买授权，地址为 https://www.xiaonuo.vip
  */
-package vip.xiaonuo.modular.video.entity;
+package vip.xiaonuo.modular.videocategory.enums;
 
-import com.baomidou.mybatisplus.annotation.*;
-import vip.xiaonuo.core.pojo.base.entity.BaseEntity;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import java.util.*;
-import cn.afterturn.easypoi.excel.annotation.Excel;
+import vip.xiaonuo.core.annotion.ExpEnumType;
+import vip.xiaonuo.core.exception.enums.abs.AbstractBaseExceptionEnum;
+import vip.xiaonuo.core.factory.ExpEnumCodeFactory;
+import vip.xiaonuo.sys.core.consts.SysExpEnumConstant;
 
 /**
- * 视频列表
+ * 视频分类
  *
  * @author jetox
- * @date 2022-06-17 22:07:37
+ * @date 2022-06-17 22:13:03
  */
-@EqualsAndHashCode(callSuper = true)
-@Data
-@TableName("sys_video")
-public class Video extends BaseEntity {
-
+@ExpEnumType(module = SysExpEnumConstant.SNOWY_SYS_MODULE_EXP_CODE)
+public enum VideoCategoryExceptionEnum implements AbstractBaseExceptionEnum {
 
     /**
-     * 简要描述
+     * 数据不存在
      */
-    @Excel(name = "简要描述")
-    private String content;
-    /**
-     * 主键
-     */
-    @TableId(type = IdType.ASSIGN_ID)
-    private Long id;
+    NOT_EXIST(1, "此数据不存在");
 
-    /**
-     * 满意度
-     */
-    @Excel(name = "满意度")
-    private Integer playTimes;
+    private final Integer code;
 
-    /**
-     * 状态
-     */
-    @Excel(name = "状态")
-    private Integer status;
+    private final String message;
+        VideoCategoryExceptionEnum(Integer code, String message) {
+        this.code = code;
+        this.message = message;
+    }
 
-    /**
-     * 标题
-     */
-    @Excel(name = "标题")
-    private String title;
+    @Override
+    public Integer getCode() {
+        return ExpEnumCodeFactory.getExpEnumCode(this.getClass(), code);
+    }
 
-    /**
-     * 类型（字典 1建议 2反馈）
-     */
-    @Excel(name = "类型（字典 1建议 2反馈）")
-    private Integer type;
-
-    /**
-     * 视频地址
-     */
-    @Excel(name = "视频地址")
-    private String url;
+    @Override
+    public String getMessage() {
+        return message;
+    }
 
 }

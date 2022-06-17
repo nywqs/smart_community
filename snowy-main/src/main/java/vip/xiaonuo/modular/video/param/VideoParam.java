@@ -43,7 +43,7 @@ public class VideoParam extends BaseParam {
      * 简要描述
      */
     @NotNull(message = "简要描述不能为空，请检查content参数", groups = {add.class, edit.class})
-    private tinytext content;
+    private String content;
 
     /**
      * 主键
