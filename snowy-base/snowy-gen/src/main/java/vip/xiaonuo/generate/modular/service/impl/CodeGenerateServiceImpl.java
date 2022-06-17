@@ -109,6 +109,7 @@ public class CodeGenerateServiceImpl extends ServiceImpl<CodeGenerateMapper, Cod
                 queryWrapper.lambda().like(CodeGenerate::getTableName, codeGenerateParam.getTableName());
             }
         }
+        queryWrapper.orderByDesc("create_time");
         return new PageResult<>(this.page(PageFactory.defaultPage(), queryWrapper));
     }
 
